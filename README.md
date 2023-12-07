@@ -112,88 +112,51 @@ You are required to submit the following for review:
 ---
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
 
-## algorithm
-Import the necessary modules: fs for file system operations, inquirer for user input prompts, and any other modules you may need.
+## PseudoCode  with separation of concern
+
+class Shape:
+  - type
+  - color
+
+class Circle extends Shape:
+  - render()
+
+class Triangle extends Shape:
+  - render()
+
+class Square extends Shape:
+  - render()
+
+class Logo:
+  - text
+  - textColor
+  - shape
+  - shapeColor
+  - render()
+
+function promptUser():
+  - prompt for logo text
+  - prompt for text color
+  - prompt for shape type
+  - prompt for shape color
+  - return user input
+
+function main():
+  - userInputs = promptUser()
+  - logo = new Logo(userInputs)
+  - logo.render()
+  - saveSVGFile(logo)
+  - printMessage("Generated logo.svg")
+
+function saveSVGFile(logo):
+  - create file "logo.svg"
+  - write logo.render() to file
+
+function printMessage(message):
+  - print message to command line
+
+main()
+
+This algorithm separates the concerns by using separate classes for shapes and the logo. It also follows object-oriented programming principles by using inheritance to reuse code and creating separate classes for each shape type.
 
 
-
-Create a function called generateLogo that will handle the logo generation process.
-
-
-
-Inside the generateLogo function, use inquirer to prompt the user for the following information:
-
-
-
-Text for the logo (up to three characters)
-
-Text color (color keyword or hexadecimal number)
-
-Shape (circle, triangle, or square)
-
-Shape color (color keyword or hexadecimal number)
-
-
-
-Based on the user's input, create an SVG string that represents the logo. You can use string interpolation or concatenation to build the SVG string, incorporating the user's choices for text, text color, shape, and shape color.
-
-
-
-Save the SVG string to a file named logo.svg using the fs module.
-
-
-
-Print the message "Generated logo.svg" to the command line.
-
-
-
-Exit the application.
-
-
-
-Create a main function called main that will be the entry point of the application.
-
-
-
-Inside the main function, call the generateLogo function to start the logo generation process.
-
-
-
-Add error handling to catch any errors that may occur during the process and display an appropriate error message.
-
-
-
-Call the main function to start the application.
-
-
-
-Test the application manually by running it and verifying that it prompts the user for input, generates the logo, saves it as an SVG file, and displays the appropriate messages.
-
-
-
-Write unit tests using Jest to test the functionality of the application. Include test cases for each step of the process, including user input, SVG generation, file saving, and error handling.
-
-
-
-Run the unit tests using Jest to ensure that all tests pass.
-
-
-
-Create a walkthrough video that demonstrates the functionality of the application and shows the passing unit tests.
-
-
-
-Upload the video to a video hosting platform and obtain the video link.
-
-
-
-Update the README file of the project with the video link and any other relevant information.
-
-
-
-Submit the project, including the code, README file, and video link, for review.
-
-
-
-
-Note: Make sure to install the necessary dependencies (inquirer, fs, jest, etc.) and set up the project structure as described in the additional requirements.
