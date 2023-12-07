@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const { Circle, Square, Triangle, Logo } = require("./lib/shapes");
-const { convertFile}  = require('convert-svg-to-png');
+const svg2png = require("svg2png");
 
 function promptUser() {
   inquirer
@@ -54,6 +54,11 @@ function promptUser() {
           console.error(err);
         } else {
           console.log("SVG file created successfully!");
+          convertSvgToPng("./lib/shape.svg", "./lib/shape.png").then(
+            (outputFilePath) => {
+              console.log(outputFilePath);
+            }
+          );
         }
       });
     })
@@ -63,17 +68,24 @@ function promptUser() {
       } else {
         // Something else went wrong
       }
-
-      (async() => {
-        const inputFilePath = './lib/shape.svg';
-        const outputFilePath = await convertFile(inputFilePath);
-      
-        console.log(outputFilePath);
-        => "./lib/shape.png"
-      })();
-
-
     });
+}
+
+function convertSvgToPng(inputFilePath, outputFilePath) {
+  return new Promise((resolve, reject) => {
+    const input = fs.createReadStream(inputFilePath);
+    const output = fs.createWriteStream(outputFilePath);
+
+    input.pipe(svg2png()).pipe(output);
+
+    output.on("finish", () => {
+      resolve(outputFilePath);
+    });
+
+    output.on("error", (err) => {
+      reject(err);
+    });
+  });
 }
 
 promptUser();

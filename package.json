@@ -14,8 +14,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "convert-svg-to-png": "^0.6.4",
     "fs": "^0.0.1-security",
-    "inquirer": "^8.2.4"
+    "inquirer": "^8.2.6",
+    "svg2png": "^4.1.1"
   },
   "devDependencies": {
     "jest": "^29.7.0"
