@@ -1,5 +1,7 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
 const { Circle, Square, Triangle, Logo } = require("./lib/shapes");
+const { convertFile}  = require('convert-svg-to-png');
 
 function promptUser() {
   inquirer
@@ -46,6 +48,31 @@ function promptUser() {
       logo.setText(answers.textColor, answers.text);
       const logoSvg = logo.render();
       console.log(logoSvg);
+
+      fs.writeFile("./lib/shape.svg", logoSvg, (err) => {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log("SVG file created successfully!");
+        }
+      });
+    })
+    .catch((error) => {
+      if (error.isTtyError) {
+        // Prompt couldn't be rendered in the current environment
+      } else {
+        // Something else went wrong
+      }
+
+      (async() => {
+        const inputFilePath = './lib/shape.svg';
+        const outputFilePath = await convertFile(inputFilePath);
+      
+        console.log(outputFilePath);
+        => "./lib/shape.png"
+      })();
+
+
     });
 }
 
