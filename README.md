@@ -40,7 +40,7 @@ THEN I am shown a 300x200 pixel image that matches the criteria I entered
 
 The following image shows a mock-up of the generated SVG given the following input entered by the user: `SVG` for the text, `white` for the text color, `circle` from the list of shapes, and `green` for the shape color. Note that this is just an image of the output SVG and not the SVG file itself:
 
-![Image showing a green circle with white text that reads "SVG.".](./Images/10-oop-homework-demo.png)
+![Image showing a green circle with white text that reads "SVG.".](./lib/10-oop-homework-demo.png)
 
 ## Additional Requirements
 
