@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
-const fs = require("fs");
+const fs = require("pn/fs");
 const { Circle, Square, Triangle, Logo } = require("./lib/shapes.js");
-const { convert } = require("convert-svg-to-png");
+const svg2png = require("svg2png");
 
 function promptUser() {
   // Use inquirer to prompt the user to introduce characteristics of the SVG logo
@@ -57,12 +57,23 @@ function promptUser() {
         } else {
           console.log("SVG file created successfully!");
 
-          // Convert SVG to PNG
-          convert(async () => {
-            const inputFilePath = "./lib/logo.svg";
-            const outputFilePath = await convertFile(inputFilePath);
-            console.log(outputFilePath);
+          // Read the contents of the SVG file into a buffer
+          fs.readFile("./lib/logo.svg", (err, data) => {
+            if (err) {
+              console.error(err);
+            } else {
+              // Convert SVG to PNG using the sourceBuffer
+              svg2png(data, { width: 300, height: 200 })
+                .then((buffer) => fs.writeFile("./lib/logo.png", buffer))
+                .catch((e) => console.error(e));
+            }
           });
+
+          // // Convert SVG to PNG
+          // fs.readFile("./lib/logo.svg");
+          // svg2png(sourceBuffer, { width: 300, height: 200 })
+          //   .then((buffer) => fs.writeFile("./lib/logo.png", buffer))
+          //   .catch((e) => console.error(e));
         }
       });
     });
