@@ -6,8 +6,6 @@ Your task is to build a Node.js command-line application that takes in user inpu
 
 Because this application won’t be deployed, you’ll need to provide a link to a walkthrough video that demonstrates its functionality and passes all of the tests. You’ll need to submit a link to the video **and** add it to the README of your project.
 
-Refer to the [Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) on the Full-Stack Blog for additional guidance on creating a video.
-
 > **Note**: There is no starter code for this assignment.
 ### User Story
 
@@ -157,6 +155,10 @@ function printMessage(message):
 
 main()
 
-This algorithm separates the concerns by using separate classes for shapes and the logo. It also follows object-oriented programming principles by using inheritance to reuse code and creating separate classes for each shape type.
+This algorithm separates the concerns by using separate classes for shapes and the logo. It also follows object-oriente d programming principles by using inheritance to reuse code and creating separate classes for each shape type.
+
+## Results
+Here is a link to the walkthrough video : https://drive.google.com/file/d/1pXBVvzvX16WmDZ3CmcXXEYhIxEPdeCaW/view
+Here is a link to the code: https://github.com/Obi1knube/SVG-Logo-Maker-Obiora
 
 
