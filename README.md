@@ -110,7 +110,7 @@ You are required to submit the following for review:
 ---
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
 
-## PseudoCode  with separation of concern
+## PseudoCode
 
 class Shape:
   - type
